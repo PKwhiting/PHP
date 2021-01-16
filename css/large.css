@@ -1,0 +1,9 @@
+@media (min-width: 60em){
+
+    body {
+        background-image: url("../images/site/checkerboard.jpg");
+        background-size: 300px;
+        padding-right: 20%;
+        padding-left: 20%;
+      }
+}

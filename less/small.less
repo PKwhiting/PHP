@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Titillium+Web&display=swap');
+@header-font-family: 'Russo One', sans-serif;
+@text-font-family: 'Titillium Web', sans-serif;
+@color1: #bababa;
+@color2: #8d8d8d;
+@color3: #a6cbeb;
+@color4: #4c96d7;
+@color5: #3a3a3a;
+@color6: #ffffff;
+@large-font: 40px;
+@medium-font: 18px;
+@small-font: 15px;
+
+body {
+    
+    main {
+        header {
+            display: grid;
+            grid-template-columns: auto;
+            img {
+                display: inline;
+                margin-right: auto;
+                margin-left: auto;
+            }
+            a {
+            font-family: @text-font-family;
+            font-size: @medium-font;
+            text-decoration: none;
+            margin-right:auto;
+            margin-left: auto;
+            margin-top: .5em;
+            margin-bottom: .5em;
+        
+            }
+            a:hover {
+                color: black;
+            }
+        }
+        nav {
+            background-color: @color5;
+            width: 100%;
+            padding-top: 1.5em;
+            padding-bottom: 1.5em;
+            text-align: center;
+            a {
+                color: @color6;
+                font-family: @text-font-family;
+                font-size: @medium-font;
+                text-decoration: none;
+                padding-right: 1em;
+                padding-left: 1em;
+            }
+            a:hover {
+                color: @color4;
+            }
+        }
+        h1 { 
+            font-family: @header-font-family;
+            font-size: @large-font;
+        }
+        
+        footer {
+            border-top: black solid 3px;
+            border-bottom: black solid 3px;
+            font-family: @text-font-family;
+            font-size: @small-font;
+            text-align: center;
+        }
+
+    }
+
+    
+
+}
+
