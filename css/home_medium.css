@@ -14,15 +14,14 @@
         display: block
       }
       html body main header img {
-        display: inline;
-        margin-left:0px;
+        width: 200px;
       }
       html body main header a {
         float: right;
         margin-top: 1.5em;
         margin-right: 1.5em;
       }
-      html body main nav {
-        text-align: left;
+      html body main nav ul{
+        justify-content: left;
       }
 }

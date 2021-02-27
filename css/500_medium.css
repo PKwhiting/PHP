@@ -1,0 +1,27 @@
+@media (min-width: 32.5em){
+  html body {
+      background-image: url("../images/site/checkerboard.jpg");
+      background-size: 300px;
+      padding-right: 10%;
+      padding-left: 10%;
+    }
+    html body main {
+      border: #4c96d7 solid 3px;
+      background-color: #ffffff;
+    }
+
+    html body main header {
+      display: block
+    }
+    html body main header img {
+      width: 200px;
+    }
+    html body main header a {
+      float: right;
+      margin-top: 1.5em;
+      margin-right: 1.5em;
+    }
+    html body main nav {
+      text-align: left;
+    }
+}

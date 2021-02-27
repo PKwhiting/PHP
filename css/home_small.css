@@ -1,0 +1,210 @@
+@font-face {
+  font-family: 'Russo One';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/russoone/v9/Z9XUDmZRWg6M1LvRYsH-yA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/titilliumweb/v9/NaPecZTIAOhVxoMyOr9n_E7fRMQ.ttf) format('truetype');
+}
+body main header img {
+  width: 100px;
+  display: inline;
+}
+body main header a {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 18px;
+  text-decoration: none;
+  float: right;
+  margin-top: 0.5em;
+  margin-right: 0.2em;
+}
+body main header a:hover {
+  color: black;
+}
+body main nav {
+  background-color: #3a3a3a;
+  width: 100%;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  text-align: center;
+}
+body main nav ul {
+  display: flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+  font-family: 'Titillium Web', sans-serif;
+  justify-content: center;
+  padding: 0;
+}
+body main nav ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  margin: 0.5rem 1rem 0.5rem 1rem;
+  font-size: 18px;
+}
+body main nav ul li:hover {
+  background-color: #4c96d7;
+}
+body main h1 {
+  font-family: 'Russo One', sans-serif;
+  font-size: 25px;
+  margin-left: 0.3em;
+}
+body main .required {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 15px;
+  padding-left: 1rem;
+  margin: 0;
+}
+body main #mainblock {
+  margin-left: 0.3em;
+  position: relative;
+  text-align: center;
+  padding-top: 5em;
+  padding-bottom: 5em;
+}
+body main #mainblock img {
+  width: 100%;
+  margin-bottom: 4em;
+}
+body main #mainblock #amenities {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  font-family: 'Titillium Web', sans-serif;
+  color: #4c96d7;
+}
+body main #mainblock #amenities h2 {
+  margin: 0px;
+}
+body main #mainblock #amenities ul {
+  list-style-type: none;
+  margin: 0px;
+  padding-left: 0px;
+  text-align: left;
+}
+body main #mainblock a {
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #4c96d7;
+  border: black solid 1px;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 25px;
+  box-shadow: -5px 3px 0px -1px #000000;
+}
+body main div {
+  margin-left: 0.3em;
+}
+body main div #reviews h2 {
+  font-family: 'Titillium Web', sans-serif;
+}
+body main div #reviews ul {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 15px;
+}
+body main div #reviews ul li {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+body main div h2 {
+  font-family: 'Titillium Web', sans-serif;
+}
+body main div #upgrades {
+  display: grid;
+  grid-template-columns: auto auto;
+  margin-right: 1em;
+}
+body main div #upgrades .upgradeitems {
+  height: 12em;
+  margin: 0.2em;
+  text-align: center;
+}
+body main div #upgrades .upgradeitems .itemimage {
+  height: 70%;
+  width: 100%;
+  background-color: #4c96d7;
+  margin-bottom: 1em;
+}
+body main div #upgrades .upgradeitems .itemimage img {
+  height: 6em;
+  margin-top: 5%;
+}
+body main div #upgrades .upgradeitems a {
+  text-decoration: none;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 18px;
+}
+body main .form {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 18px;
+  padding: 1rem;
+}
+body main .form label {
+  margin: 0.5rem 0rem 0.5rem 0rem;
+}
+body main .form input {
+  margin: 0.5rem 0rem 0.5rem 0rem;
+}
+body main .form .submit {
+  margin-bottom: 1.5rem;
+}
+body main .form .register {
+  background-color: #a6cbeb;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #4c96d7;
+  border: black solid 1px;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 25px;
+  box-shadow: -3px 1.5px 0px -1px #000000;
+}
+body main .form .register:active {
+  box-shadow: 0px 0px 0px 0px #000000;
+  position: relative;
+  left: -3px;
+  bottom: -2.5px;
+}
+body main .minimessage {
+  font-size: 15px;
+  font-family: 'Titillium Web', sans-serif;
+  margin-left: 1rem;
+}
+body main .passwordmessage {
+  font-size: 15px;
+  margin: 0;
+}
+body main .bigbutton {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 18px;
+  background-color: #4c96d7;
+  border: 1px solid black;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  color: white;
+  margin-left: 0.5rem;
+}
+body main .list {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 18px;
+}
+body main footer {
+  border-top: black solid 3px;
+  border-bottom: black solid 3px;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 15px;
+  text-align: center;
+  margin-top: 1rem;
+}

@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Titillium+Web&display=swap');
+@header-font-family: 'Russo One', sans-serif;
+@text-font-family: 'Titillium Web', sans-serif;
+@color1: #bababa;
+@color2: #8d8d8d;
+@color3: #a6cbeb;
+@color4: #4c96d7;
+@color5: #3a3a3a;
+@color6: #ffffff;
+@large-font: 25px;
+@medium-font: 18px;
+@small-font: 15px;
+
+body {
+    
+    main {
+        header {
+            img {
+                width: 100px;
+                display: inline;
+            }
+            a {
+            font-family: @text-font-family;
+            font-size: @medium-font;
+            text-decoration: none;
+            float: right;
+            margin-top: .5em;
+            margin-right: .2em;
+        
+            }
+            a:hover {
+                color: black;
+            }
+
+        }
+        nav {
+            background-color: @color5;
+            width: 100%;
+            padding-top: 1.5em;
+            padding-bottom: 1.5em;
+            text-align: center;
+            ul {
+                display: flex;
+                list-style-type: none;
+                flex-wrap: wrap;
+                font-family: @text-font-family;
+                justify-content: center;
+                padding: 0;
+                li {
+                    a {
+                        text-decoration: none;
+                        color: @color6;
+                        margin: .5rem 1rem .5rem 1rem;
+                        font-size: @medium-font;
+                    }
+                }
+                li:hover {
+                    background-color: @color4;
+                }
+            }
+        }
+        h1 { 
+            font-family: @header-font-family;
+            font-size: @large-font;
+            margin-left: .3em;
+        }
+        .required {
+            font-family: @text-font-family;
+            font-size: @small-font;
+            padding-left: 1rem;
+            margin: 0;
+        }
+        
+        #mainblock {
+            margin-left: .3em;
+            position: relative;
+            text-align: center;
+            padding-top: 5em;
+            padding-bottom: 5em;
+
+            img {
+                width: 100%;
+                margin-bottom: 4em;
+            }
+            #amenities {
+                position: absolute;
+                top: 8px;
+                left: 16px;
+                font-family: @text-font-family;
+                color: @color4;
+                
+                h2 {
+                    margin: 0px;
+                }
+                ul {
+                    list-style-type: none;
+                    margin: 0px;
+                    padding-left: 0px;
+                    text-align: left;
+                }
+            }
+            a {
+                text-decoration: none;
+                color: @color6;
+                background-color: @color4;
+                border: black solid 1px;
+                padding-left: 5%;
+                padding-right: 5%;
+                padding-top: 2%;
+                padding-bottom: 2%;
+                font-family: @text-font-family;
+                font-size: @large-font;
+                box-shadow: -5px 3px 0px -1px #000000;
+            }
+        }
+        div {
+            margin-left: .3em;
+            #reviews {
+                h2 {
+                    font-family: @text-font-family;
+                }
+                ul {
+                    font-family: @text-font-family;
+                    font-size: @small-font;
+                    li {
+                        padding-top: .5em;
+                        padding-bottom: .5em;
+                    }
+                }
+            }
+            h2 {
+                font-family: @text-font-family;
+            }
+            #upgrades {
+                display: grid;
+                grid-template-columns: auto auto;
+                margin-right: 1em;
+                .upgradeitems {
+                    height: 12em;
+                    margin:.2em;
+                    text-align: center;
+                    .itemimage {
+                        height: 70%;
+                        width: 100%;
+                        background-color: @color4;
+                        margin-bottom: 1em;
+                        img {
+                            height:6em;
+                            margin-top: 5%;
+                        }
+                    }
+                    a {
+                        text-decoration: none;
+                        font-family: @text-font-family;
+                        font-size: @medium-font;
+                    }
+
+                }
+                
+
+
+            }
+        }
+        .form {
+            font-family: @text-font-family;
+            font-size: @medium-font;
+            padding: 1rem;
+            label {
+                margin: .5rem 0rem .5rem 0rem;
+            }
+            input {
+                margin: .5rem 0rem .5rem 0rem;
+            }
+            .submit {
+                margin-bottom: 1.5rem;
+            }
+            .register {
+                background-color: @color3;
+                text-decoration: none;
+                color: @color6;
+                background-color: @color4;
+                border: black solid 1px;
+                padding-left: 2.5%;
+                padding-right: 2.5%;
+                padding-top: 1%;
+                padding-bottom: 1%;
+                font-family: @text-font-family;
+                font-size: @large-font;
+                box-shadow: -3px 1.5px 0px -1px #000000;
+            }
+            .register:active{
+                box-shadow: 0px 0px 0px 0px #000000;
+                position: relative;
+                left: -3px;
+                bottom: -2.5px;
+            }
+            
+        }
+        .minimessage {
+            font-size: @small-font;
+            font-family: @text-font-family;
+            margin-left: 1rem;
+        }
+        .passwordmessage {
+            font-size: @small-font;
+            margin: 0;
+        }
+        .bigbutton {
+            font-family: @text-font-family;
+            font-size: @medium-font;
+            background-color: @color4;
+            border: 1px solid black;
+            padding: .5rem 1rem .5rem 1rem;
+            color: white;
+            margin-left: .5rem;
+        }
+        .list {
+            font-family: @text-font-family;
+            font-size: @medium-font;
+        }
+        
+        footer {
+            border-top: black solid 3px;
+            border-bottom: black solid 3px;
+            font-family: @text-font-family;
+            font-size: @small-font;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+    }
+}
+
