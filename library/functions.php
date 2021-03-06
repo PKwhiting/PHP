@@ -22,4 +22,23 @@ function navBar($classifications){
     return $navList;
 }
 
+
+
+    // Build the classifications select list 
+function buildClassificationList($classifications,$classificationIds){ 
+    $classificationList = '<select name="classificationId" id="classificationList">'; 
+    $classificationList .= "<option>Choose a Classification</option>"; 
+
+    $length = count($classificationIds, COUNT_NORMAL);
+    for($i = 0; $i < $length; $i++) {
+        $classification = $classifications[$i];
+        $classificationId = $classificationIds[$i];
+        $classificationList .= "<option value='$classificationId[classificationId]'>$classification[classificationName]</option>"; 
+    }
+    // foreach ($classifications as $classification) { 
+    //  $classificationList .= "<option value='$classificationIds[classificationId]'>$classification[classificationName]</option>"; 
+    // } 
+    $classificationList .= '</select>'; 
+    return $classificationList; 
+   }
 ?>

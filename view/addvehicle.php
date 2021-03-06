@@ -16,8 +16,9 @@ for($i = 0; $i < $length; $i++) {
 }
 $idList .= '</select>';
 
-if (($_SESSION['loggedin'] != TRUE) && ($_SESSION['clientLevel'] < 2)){
-  header('Location: /phpmotors/');
+//if (($_SESSION['loggedin'] != TRUE) && ($_SESSION['clientLevel'] < 2)){
+  if ($_SESSION['clientData']['clientLevel'] < 2) {
+    header('Location: /phpmotors/');
 }
 
 ?><!doctype html>

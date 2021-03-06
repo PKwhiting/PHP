@@ -188,6 +188,7 @@ body main .passwordmessage {
   margin: 0;
 }
 body main .bigbutton {
+  display: inline-block;
   font-family: 'Titillium Web', sans-serif;
   font-size: 18px;
   background-color: #4c96d7;
@@ -195,6 +196,19 @@ body main .bigbutton {
   padding: 0.5rem 1rem 0.5rem 1rem;
   color: white;
   margin-left: 0.5rem;
+  margin-bottom: 1rem;
+}
+body main h2 {
+  font-family: 'Russo One', sans-serif;
+  margin-left: 0.3em;
+}
+body main #classificationList {
+  margin-left: 1rem;
+  font-family: 'Titillium Web', sans-serif;
+}
+body main #inventoryDisplay {
+  font-family: 'Titillium Web', sans-serif;
+  margin-left: 1rem;
 }
 body main .list {
   font-family: 'Titillium Web', sans-serif;
