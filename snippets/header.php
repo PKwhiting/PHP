@@ -14,7 +14,7 @@ if(isset($_SESSION['loggedin'])){
         }
     }
 else {
-    echo '<a href="/phpmotors/accounts/index.php?action=loginview" title="Access important information about account">My Account</a>';
+    echo '<a href="/phpmotors/accounts/index.php" title="Access important information about account">My Account</a>';
 }
 ?>
 

@@ -33,9 +33,9 @@ $action = filter_input(INPUT_GET, 'action');
       include '../view/register.php';
       break;
     
-    case 'adminview' :
-      include '../view/admin.php';
-      break;
+    // case 'adminview' :
+    //   include '../view/admin.php';
+    //   break;
 
 
     case 'logout':
@@ -94,7 +94,7 @@ $action = filter_input(INPUT_GET, 'action');
 
 
 
-      case 'login':
+    case 'login':
         $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
         $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
         $clientEmail = checkEmail($clientEmail);
@@ -108,6 +108,7 @@ $action = filter_input(INPUT_GET, 'action');
         // A valid password exists, proceed with the login process
         // Query the client data based on the email address
         $clientData = getClient($clientEmail);
+        //var_dump($clientData);
         // Compare the password just submitted against
         // the hashed password for the matching client
         $hashCheck = password_verify($clientPassword, $clientData['clientPassword']);
@@ -129,16 +130,111 @@ $action = filter_input(INPUT_GET, 'action');
         // Send them to the admin view
         //$fullName = $clientData["clientFirstname"]." ".$clientData["clientLastname"];
         $_SESSION['fullname'] =$clientData["clientFirstname"]." ".$clientData["clientLastname"];
+        $_SESSION['lastname'] = $clientData["clientLastname"];
         $_SESSION['email'] = $clientEmail;
         $_SESSION['firstname'] = $clientData["clientFirstname"];
         $_SESSION['clientLevel'] = $clientData["clientLevel"];
+        $_SESSION['clientId'] = $clientData["clientId"];
         include '../view/admin.php';
         exit;
         break;
 
+    case 'updateview' :
+      $clientId = $_SESSION['clientId'];
+      //echo($clientId);
+      //$clientInfo = getClietInfo($clientId);
+      include '../view/client-update.php';
+      break;
 
+
+    case 'updateaccount' :
+      $clientFirstname = filter_input(INPUT_POST, 'clientFirstname', FILTER_SANITIZE_STRING);
+      $clientLastname = filter_input(INPUT_POST, 'clientLastname', FILTER_SANITIZE_STRING);
+      $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_STRING);
+      $clientId = $_SESSION['clientId'];
+      $clientEmail = checkEmail($clientEmail);
+
+      //checking for existing email address
+      $emailcheck = checkExistingEmail($clientEmail);
+      if($emailcheck) {
+        $message = '<p class="minimessage">That email address already exists. Try a different Email</p>';
+        $_SESSION['message'] = $message;
+        include '../view/client-update.php';
+        exit;
+      }
+
+
+      if(empty($clientFirstname) || empty($clientLastname) || empty($clientEmail) || empty($clientId)){
+        $message = '<p class="minimessage">Please complete all information for updating your account.</p>';
+        $_SESSION['message'] = $message;
+        include '../view/client-update.php';
+      }
+
+
+      $updateResult = updateAccount($clientId,$clientFirstname,$clientLastname,$clientEmail);
+      if($updateResult){
+        $_SESSION['lastname'] = $clientLastname;
+        $_SESSION['email'] = $clientEmail;
+        $_SESSION['firstname'] = $clientFirstname;
+        $message = "<p class='minimessage'>Congratulations $clientFirstname, your account information was updated.</p>";
+        $_SESSION['message'] = $message;
+        include '../view/admin.php';
+        exit;
+      }
+      else {
+        $message = "<p class='minimessage'>Error. $clientFirstname your account information was not updated.</p>";
+        $_SESSION['message'] = $message;
+        include '../view/client-update.php';
+        exit;
+        exit;
+      }
+      
+
+
+    case 'updatepassword' :
+      $clientId = $_SESSION['clientId'];
+      $newPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
+      $checkPassword = checkPassword($newPassword);
+      $clientData = getClietInfo($clientId);
+
+
+      $hashCheck = password_verify($newPassword, $clientData['clientPassword']);
+        // If the hashes don't match create an error
+        // and return to the login view
+      if($hashCheck == 1) {
+        $message = '<p class="minimessage">Please provide new password.</p>';
+        $_SESSION['message'] = $message;
+        include '../view/client-update.php';
+        exit;
+      }
+      if(empty($checkPassword)){
+        $message = '<p class="minimessage">Please check your password and try again.</p>';
+        $_SESSION['message'] = $message;
+        include '../view/client-update.php';
+        exit; 
+      }
+
+      $hashedpassword = password_hash($newPassword, PASSWORD_DEFAULT);
+      
+
+    
+      $pwordUpdate = updatePassword($clientId, $hashedpassword);
+      if($pwordUpdate === 1){
+        $message = "<p class='minimessage'>Your password has been succesfully updated.</p>";
+        $_SESSION['message'] = $message;
+        include '../view/client-update.php';
+        exit;
+       } 
+       else {
+        $message = "<p class='minimessage'>Updating your password failed.</p>";
+        $_SESSION['message'] = $message;
+        include '../view/client-update.php';
+        exit;
+       }
+      break;
 
     default:
+      include '../view/admin.php';
      break;
    }
 ?>

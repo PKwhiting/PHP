@@ -2,7 +2,13 @@
     //if (($_SESSION['loggedin'] != TRUE) && ($_SESSION['clientLevel'] < 2)){
     if ($_SESSION['clientData']['clientLevel'] < 2) {
         header('Location: /phpmotors/');
+        exit;
     }
+
+
+    if (isset($_SESSION['message'])) {
+      $message = $_SESSION['message'];
+     }
 ?><!doctype html>
 <html lang="en">
 <head>
@@ -25,11 +31,6 @@
   </nav>
   <h1>Vehicle Management</h1>
   <div class="message">
-    <?php
-      if (isset($message)) {
-      echo $message;
-      }
-    ?>
   </div>
   <br>
   <br>
@@ -61,3 +62,4 @@
   <script src="../js/inventory.js"></script>
 </body>
 </html>
+<?php unset($_SESSION['message']); ?>
