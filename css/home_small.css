@@ -214,6 +214,53 @@ body main .list {
   font-family: 'Titillium Web', sans-serif;
   font-size: 18px;
 }
+body main #inv-display {
+  display: grid;
+  grid-template-columns: auto;
+  list-style-type: none;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+body main #inv-display li {
+  justify-content: center;
+  border: 1px solid grey;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+  width: 80%;
+  text-align: center;
+}
+body main #inv-display li img {
+  width: 100%;
+}
+body main #inv-display li h2 {
+  font-size: 18px;
+}
+body main #inv-display li span {
+  font-family: 'Titillium Web', sans-serif;
+}
+body main #inv-display li hr {
+  background-color: black;
+  height: 3px;
+}
+body main #carinfo img {
+  width: 96%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+body main #carinfo h3 {
+  font-family: 'Titillium Web', sans-serif;
+  padding-left: 0.5rem;
+}
+body main #carinfo ul {
+  font-family: 'Titillium Web', sans-serif;
+  list-style-type: none;
+  padding-left: 0.5rem;
+}
+body main #carinfo p {
+  font-family: 'Titillium Web', sans-serif;
+  padding-left: 0.5rem;
+}
 body main footer {
   border-top: black solid 3px;
   border-bottom: black solid 3px;

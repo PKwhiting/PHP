@@ -152,17 +152,21 @@ $action = filter_input(INPUT_GET, 'action');
       $clientLastname = filter_input(INPUT_POST, 'clientLastname', FILTER_SANITIZE_STRING);
       $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_STRING);
       $clientId = $_SESSION['clientId'];
-      $clientEmail = checkEmail($clientEmail);
-
-      //checking for existing email address
-      $emailcheck = checkExistingEmail($clientEmail);
-      if($emailcheck) {
-        $message = '<p class="minimessage">That email address already exists. Try a different Email</p>';
-        $_SESSION['message'] = $message;
-        include '../view/client-update.php';
-        exit;
+      $clientInfo = getClietInfo($clientId);
+      
+      if ($clientInfo['clientEmail'] != $clientEmail){
+        $clientEmail = checkEmail($clientEmail);
+        $emailcheck = checkExistingEmail($clientEmail);
+        if($emailcheck) {
+          $message = '<p class="minimessage">That email address already exists. Try a different Email</p>';
+          $_SESSION['message'] = $message;
+          include '../view/client-update.php';
+          exit;
       }
 
+      }
+    
+      $clientEmail = checkEmail($clientEmail);
 
       if(empty($clientFirstname) || empty($clientLastname) || empty($clientEmail) || empty($clientId)){
         $message = '<p class="minimessage">Please complete all information for updating your account.</p>';

@@ -65,9 +65,9 @@ $idList .= '</select>';
         <label for="invDescription">Description:</label><br>
         <input type="text" id="invDescription" name="invDescription" <?php if(isset($invDescription)){echo "value='$invDescription'";} elseif(isset($invInfo['invDescription'])) {echo "value='$invInfo[invDescription]'"; } ?> required><br>
         <label for="invImage">Image Path:</label><br>
-        <input type="text" id="invImage" name="invImage" value="../images/no-image.png" <?php if(isset($invImage)){echo "value='$invImage'";} elseif(isset($invInfo['invImage'])) {echo "value='$invInfo[invImage]'"; } ?> required><br>
+        <input type="text" id="invImage" name="invImage"<?php if(isset($invImage)){echo "value='$invImage'";} elseif(isset($invInfo['invImage'])) {echo "value='$invInfo[invImage]'"; } ?> required><br>
         <label for="invThumbnail">Thumbnail Path:</label><br>
-        <input type="text" id="invThumbnail" name="invThumbnail" value="../images/no-image.png" <?php if(isset($invThumbnail)){echo "value='$invThumbnail'";} elseif(isset($invInfo['invThumbnail'])) {echo "value='$invInfo[invThumbnail]'"; } ?> required><br>
+        <input type="text" id="invThumbnail" name="invThumbnail"<?php if(isset($invThumbnail)){echo "value='$invThumbnail'";} elseif(isset($invInfo['invThumbnail'])) {echo "value='$invInfo[invThumbnail]'"; } ?> required><br>
         <label for="invPrice">Price:</label><br>
         <input type="number" id="invPrice" name="invPrice" <?php if(isset($invPrice)){echo "value='$invPrice'";} elseif(isset($invInfo['invPrice'])) {echo "value='$invInfo[invPrice]'"; } ?> required><br>
         <label for="invStock"># in Stock:</label><br>

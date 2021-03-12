@@ -71,6 +71,7 @@ body {
             margin: 0;
         }
         
+        
         #mainblock {
             margin-left: .3em;
             position: relative;
@@ -231,6 +232,61 @@ body {
         .list {
             font-family: @text-font-family;
             font-size: @medium-font;
+        }
+        
+        #inv-display {
+            display:grid;
+            grid-template-columns:auto;
+            list-style-type: none;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            
+            li {
+                justify-content: center;
+                border: 1px solid grey;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 2rem;
+                width: 80%;
+                text-align: center;
+                img {
+                    width: 100%;
+                    
+                }
+                h2 {
+                    font-size: @medium-font;
+                }
+                span {
+                    font-family: @text-font-family;
+                }
+                hr {
+                    background-color: black;
+                    height: 3px;
+                }
+                
+            }
+            
+        }
+        #carinfo {
+            img {
+                width: 96%;
+                margin-left: 2%;
+                margin-right: 2%;
+            }
+            h3 {
+                font-family: @text-font-family;
+                padding-left: .5rem;
+
+            }
+            ul {
+                font-family: @text-font-family;
+                list-style-type: none;
+                padding-left: .5rem;
+            }
+            p {
+                font-family: @text-font-family;
+                padding-left: .5rem;
+            }
         }
         
         footer {

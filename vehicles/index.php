@@ -38,6 +38,30 @@ $action = filter_input(INPUT_GET, 'action');
  }
 
 switch ($action){
+    case 'vehicleinfo':
+      $invId = filter_input(INPUT_GET, 'invId', FILTER_SANITIZE_NUMBER_INT);
+      $vehicle = getInvItemInfo($invId);
+      if(is_null($vehicle)){
+        $message = "<p class='minimessage'>Sorry, the vehicle could not be found.</p>";
+      } else {
+        $vehicleInfoDisplay = buildvehicleDisplay($vehicle);
+      }
+      include '../view/vehicle-detail.php';
+
+      break;
+
+
+    case 'classification':
+      $classificationName = filter_input(INPUT_GET, 'classificationName', FILTER_SANITIZE_STRING);
+      $vehicles = getVehiclesByClassification($classificationName);
+      if(!count($vehicles)){
+        $message = "<p class='minimessage'>Sorry, no $classificationName vehicles could be found.</p>";
+      } else {
+        $vehicleDisplay = buildVehiclesDisplay($vehicles);
+      }
+      include '../view/classification.php';
+      
+      break;
     case 'addClassification':
       include '../view/addclassification.php';
       break;
@@ -51,76 +75,76 @@ switch ($action){
         break;
 
     case 'newClassification':
-    $classificationName = filter_input(INPUT_POST, 'classificationName', FILTER_SANITIZE_STRING);
-    // Check for missing data
-    if(empty($classificationName)){
-      $message = '<p class="minimessage">Please provide information for all empty form fields.</p>';
-      include '../view/addclassification.php';
-      exit; 
-    }
+      $classificationName = filter_input(INPUT_POST, 'classificationName', FILTER_SANITIZE_STRING);
+      // Check for missing data
+      if(empty($classificationName)){
+        $message = '<p class="minimessage">Please provide information for all empty form fields.</p>';
+        include '../view/addclassification.php';
+        exit; 
+      }
 
-    $regOutcome = regVehicleClassification($classificationName);
-    if($regOutcome === 1){
-      $classifications = getClassifications();
-      $navList = navBar($classifications);
-      $message = "<p class='minimessage'>Thanks for adding the $classificationName classification.</p>";
-      include '../view/vehiclemanagement.php';
-      exit;
-     } 
-     else {
-      $message = "<p>Sorry but the registration failed. Please try again.</p>";
-      include '../view/addclassification.php';
-      exit;
-     }
-    break;
+      $regOutcome = regVehicleClassification($classificationName);
+      if($regOutcome === 1){
+        $classifications = getClassifications();
+        $navList = navBar($classifications);
+        $message = "<p class='minimessage'>Thanks for adding the $classificationName classification.</p>";
+        include '../view/vehiclemanagement.php';
+        exit;
+      } 
+      else {
+        $message = "<p>Sorry but the registration failed. Please try again.</p>";
+        include '../view/addclassification.php';
+        exit;
+      }
+      break;
 
 
 
 
 
     case 'registerVehicle':
-    $classificationId = filter_input(INPUT_POST, 'classificationId');
-    $invMake = filter_input(INPUT_POST, 'invMake', FILTER_SANITIZE_STRING);
-    $invModel = filter_input(INPUT_POST, 'invModel', FILTER_SANITIZE_STRING);
-    $invDescription = filter_input(INPUT_POST, 'invDescription', FILTER_SANITIZE_STRING);
-    $invImage = filter_input(INPUT_POST, 'invImage', FILTER_SANITIZE_STRING);
-    $invThumbnail = filter_input(INPUT_POST, 'invThumbnail', FILTER_SANITIZE_STRING);
-    $invPrice = filter_input(INPUT_POST, 'invPrice', FILTER_SANITIZE_NUMBER_FLOAT);
-    $invStock = filter_input(INPUT_POST, 'invStock', FILTER_SANITIZE_STRING);
-    $invColor = filter_input(INPUT_POST, 'invColor', FILTER_SANITIZE_STRING);
+      $classificationId = filter_input(INPUT_POST, 'classificationId');
+      $invMake = filter_input(INPUT_POST, 'invMake', FILTER_SANITIZE_STRING);
+      $invModel = filter_input(INPUT_POST, 'invModel', FILTER_SANITIZE_STRING);
+      $invDescription = filter_input(INPUT_POST, 'invDescription', FILTER_SANITIZE_STRING);
+      $invImage = filter_input(INPUT_POST, 'invImage', FILTER_SANITIZE_STRING);
+      $invThumbnail = filter_input(INPUT_POST, 'invThumbnail', FILTER_SANITIZE_STRING);
+      $invPrice = filter_input(INPUT_POST, 'invPrice', FILTER_SANITIZE_NUMBER_FLOAT);
+      $invStock = filter_input(INPUT_POST, 'invStock', FILTER_SANITIZE_STRING);
+      $invColor = filter_input(INPUT_POST, 'invColor', FILTER_SANITIZE_STRING);
 
-    // Check for missing data
-    if(empty($classificationId)|| empty($invMake) || empty($invModel) || empty($invDescription) || empty($invImage) || empty($invThumbnail) || empty($invPrice) || empty($invStock) || empty($invColor)){
-      $message = '<p class="minimessage">Please provide information for all empty form fields.</p>';
-      include '../view/addvehicle.php';
-      exit; 
-    }
+      // Check for missing data
+      if(empty($classificationId)|| empty($invMake) || empty($invModel) || empty($invDescription) || empty($invImage) || empty($invThumbnail) || empty($invPrice) || empty($invStock) || empty($invColor)){
+        $message = '<p class="minimessage">Please provide information for all empty form fields.</p>';
+        include '../view/addvehicle.php';
+        exit; 
+      }
 
-    $regOutcome = regVehicleListing($classificationId,$invMake,$invModel,$invDescription,$invImage,$invThumbnail,$invPrice,$invStock,$invColor);
-    if($regOutcome === 1){
-      $message = "<p class='minimessage'>Thanks for registering your $invMake $invModel.</p>";
-      include '../view/vehiclemanagement.php';
-      exit;
-     } 
-     else {
-      $message = "<p class='minimessage'>Sorry but the registration failed. Please try again.</p>";
-      include '../view/addvehicle.php';
-      exit;
-     }
-    break;
+      $regOutcome = regVehicleListing($classificationId,$invMake,$invModel,$invDescription,$invImage,$invThumbnail,$invPrice,$invStock,$invColor);
+      if($regOutcome === 1){
+        $message = "<p class='minimessage'>Thanks for registering your $invMake $invModel.</p>";
+        include '../view/vehiclemanagement.php';
+        exit;
+      } 
+      else {
+        $message = "<p class='minimessage'>Sorry but the registration failed. Please try again.</p>";
+        include '../view/addvehicle.php';
+        exit;
+      }
+      break;
 
       /* * ********************************** 
     * Get vehicles by classificationId 
     * Used for starting Update & Delete process 
     * ********************************** */ 
     case 'getInventoryItems': 
-    // Get the classificationId 
-    $classificationId = filter_input(INPUT_GET, 'classificationId', FILTER_SANITIZE_NUMBER_INT); 
-    // Fetch the vehicles by classificationId from the DB 
-    $inventoryArray = getInventoryByClassification($classificationId); 
-    // Convert the array to a JSON object and send it back 
-    echo json_encode($inventoryArray); 
-    break;
+      // Get the classificationId 
+      $classificationId = filter_input(INPUT_GET, 'classificationId', FILTER_SANITIZE_NUMBER_INT); 
+      // Fetch the vehicles by classificationId from the DB 
+      $inventoryArray = getInventoryByClassification($classificationId); 
+      // Convert the array to a JSON object and send it back 
+      echo json_encode($inventoryArray); 
+      break;
 
     case 'mod':
       $invId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
@@ -206,11 +230,11 @@ switch ($action){
     
       //default statement
     default:
-    $classificationList = buildClassificationList($classifications,$classificationIds);
+      $classificationList = buildClassificationList($classifications,$classificationIds);
 
 
-     include '../view/vehiclemanagement.php';
-   }
+      include '../view/vehiclemanagement.php';
+      }
 
 
 
@@ -218,3 +242,4 @@ switch ($action){
 
     
 ?>
+

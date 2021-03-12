@@ -1,27 +1,56 @@
-@media (min-width: 32.5em){
+@media (min-width: 35.75em){
     html body {
         background-image: url("../images/site/checkerboard.jpg");
         background-size: 300px;
         padding-right: 10%;
         padding-left: 10%;
-      }
-      html body main {
-        border: #4c96d7 solid 3px;
-        background-color: #ffffff;
-      }
+    }
+    html body main {
+      border: #4c96d7 solid 3px;
+      background-color: #ffffff;
+    }
 
-      html body main header {
-        display: block
-      }
-      html body main header img {
-        width: 200px;
-      }
-      html body main header a {
-        float: right;
-        margin-top: 1.5em;
-        margin-right: 1.5em;
-      }
-      html body main nav ul{
-        justify-content: left;
-      }
+    html body main header {
+      display: block
+    }
+    html body main header img {
+      width: 200px;
+    }
+    html body main header a {
+      float: right;
+      margin-top: 1.5em;
+      margin-right: 1.5em;
+    }
+    html body main nav ul{
+      justify-content: left;
+    }
+
+    body main #vehiclecategories #inv-display {
+      display: flex;
+      flex-flow: row wrap;
+      list-style-type: none;
+      justify-content: center;
+      
+    }
+    body main #vehiclecategories #inv-display li {
+      width: 250px;
+      margin: 0 0 2rem 0;
+      
+    }
+    body main #vehiclecategories #inv-display li img {
+      width: auto;
+      height: 125px;
+      max-width: 250px;
+    }
+    body main #carinfo {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      grid-gap: 1rem;
+    }
+    body main #carinfo img {
+      width:100%;
+    }
+    body main #carinfo #stats {
+      width: 90%;
+    }
 }

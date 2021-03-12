@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Homepage for PHP motors.">
-    <title>PHP motors homepag</title>
+    <title>PHP motors homepage</title>
     <link rel="stylesheet" media="screen" href="css/normalize.css">
     <link rel="stylesheet" media="screen" href="css/home_small.css">
     <link rel="stylesheet" media="screen" href="css/home_medium.css">
