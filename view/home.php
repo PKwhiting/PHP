@@ -20,7 +20,7 @@
   </nav>
   <h1>Welcome to PHP Motors!</h1>
   <div id="mainblock">
-  <img src="images/delorean.jpg" alt="image of DMC Delorean">
+  <img src="images/vehicles/delorean.jpg" alt="image of DMC Delorean">
     <div id="amenities">
       <h2>DMC Delorean</h2>
       <ul>

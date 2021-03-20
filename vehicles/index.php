@@ -18,6 +18,7 @@ require_once '../model/vehicle-model.php';
 require_once '../model/accounts-model.php';
 //functions
 require_once '../library/functions.php';
+require_once '../model/uploads-model.php';
 
 //get the array of classifications from DB using model
 $classifications = getClassifications();
@@ -41,10 +42,12 @@ switch ($action){
     case 'vehicleinfo':
       $invId = filter_input(INPUT_GET, 'invId', FILTER_SANITIZE_NUMBER_INT);
       $vehicle = getInvItemInfo($invId);
+      $image = getInvImgInfo($invId);
+      $thumbnails = getThumbnails($invId);
       if(is_null($vehicle)){
         $message = "<p class='minimessage'>Sorry, the vehicle could not be found.</p>";
       } else {
-        $vehicleInfoDisplay = buildvehicleDisplay($vehicle);
+        $vehicleInfoDisplay = buildvehicleDisplay($vehicle,$image,$thumbnails);
       }
       include '../view/vehicle-detail.php';
 

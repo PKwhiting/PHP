@@ -72,6 +72,12 @@ body {
         }
         
         
+        form {
+            font-family: @text-font-family;
+            
+        }
+
+
         #mainblock {
             margin-left: .3em;
             position: relative;
@@ -268,24 +274,44 @@ body {
             
         }
         #carinfo {
-            img {
-                width: 96%;
-                margin-left: 2%;
-                margin-right: 2%;
-            }
-            h3 {
-                font-family: @text-font-family;
-                padding-left: .5rem;
+            display: grid;
+            grid-template-columns: 100%;
 
+            #tn{
+                grid-row-start: 3;
+                grid-row-end: 4;
+                height: 50px;
+                display: grid;
+                grid-template-columns: 20% 20% 20% 20% 20%;
+                grid-gap: .1rem;
+                img {
+                    height: 50px;
+                }
+                
             }
-            ul {
-                font-family: @text-font-family;
-                list-style-type: none;
-                padding-left: .5rem;
+            #ih{
+                img {
+                    width: 100%;
+                    max-width: 500px;
+                    margin-right: 2%;
+                }
             }
-            p {
-                font-family: @text-font-family;
-                padding-left: .5rem;
+
+            #stats {
+                h3 {
+                    font-family: @text-font-family;
+                    padding-left: .5rem;
+
+                }
+                ul {
+                    font-family: @text-font-family;
+                    list-style-type: none;
+                    padding-left: .5rem;
+                }
+                p {
+                    font-family: @text-font-family;
+                    padding-left: .5rem;
+                }
             }
         }
         

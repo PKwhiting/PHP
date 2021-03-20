@@ -25,14 +25,15 @@
       justify-content: left;
     }
 
-    body main #vehiclecategories #inv-display {
+    html body main  #inv-display {
       display: flex;
       flex-flow: row wrap;
       list-style-type: none;
       justify-content: center;
       
     }
-    body main #vehiclecategories #inv-display li {
+
+    body main  #inv-display li {
       width: 250px;
       margin: 0 0 2rem 0;
       
@@ -44,9 +45,23 @@
     }
     body main #carinfo {
       display: grid;
-      grid-template-columns: 50% 50%;
-      grid-gap: 1rem;
+      grid-template-columns: 10% 40% 50%;
+      grid-gap: .1rem;
     }
+    html body main #carinfo #tn {
+      height: auto;
+      grid-row-start: auto;
+      grid-row-end: auto;
+      display: block; 
+    }
+    html body main #carinfo #tn img {
+      height: auto;
+    }
+    html body main #carinfo #tn img:hover {
+      position: relative;
+      max-height: 200px;
+      width: 200px;
+  }
     body main #carinfo img {
       width:100%;
     }
