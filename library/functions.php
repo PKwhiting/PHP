@@ -59,6 +59,7 @@ function buildVehiclesDisplay($vehicles){
 function buildvehicleDisplay($item,$image,$thumbnails){
     $invPrice = number_format($item["invPrice"]);
     $dv = "<h1>$item[invMake] $item[invModel]</h1>";
+    $dv .= "<p class='minimessage'>Reviews can be found at the bottom of the page.</p>";
     $dv .= "<div id='carinfo'>";
     $dv .= "<div id='tn'>";
     foreach ($thumbnails as $thumbnail){
@@ -235,4 +236,55 @@ function resizeImage($old_image_path, $new_image_path, $max_width, $max_height) 
      // Free any memory associated with the old image
      imagedestroy($old_image);
    } // ends resizeImage function
+
+function buildReviewDisplay($reviewInfo){
+    // $timeStamp = date($reviewInfo["reviewDate"]);
+    // $display = "<ul class='reviewDisplay'>";
+    // $display .= "<li>";
+
+}
+function buildReviewEdit($reviewInfo){
+    $display = "<form class='reviewedit'";
+    $display .= "<label for='screenName' value='Screen Name:'><br>";
+    $display .= "<input id='screenName' value='$_SESSION[initial] $_SESSION[clientLastname]' readonly>";
+    $display .= "<label for='text' value='Review:'><br>";
+    $display .= "<textarea id='text' value='$reviewInfo[reviewText]'>";
+    $display .= "<input type='submit' name='submit' id='upubtn' value='Update Review'>";
+    $display .= "<input type='hidden' name='action' value='updateReview'>";
+    $display .= "<form>";
+    return $display;
+
+}
+function buildReviewList($review, $vehicle ){
+   $time = date($review["reviewDate"]);
+   $display = "<li class='minimessage'>$vehicle[invMake] $vehicle[invModel] Reviewed on $time: <a href='/phpmotors/reviews?action=updateReviewView&id=$review[reviewId]'>Edit</a> | <a href='/phpmotors/reviews?action=deleteReviewView&id=$review[reviewId]'>Delete</a></li>";
+   return $display;
+}
+
+function buildReviewForm($invId,$clientId){
+    $display = "<form class='form' action='/phpmotors/reviews/index.php' method='post'>";
+    $initial = strtoupper($_SESSION['initial']);
+    $display .= "<label for='screenName'>Screen Name:<br>
+        <input id='screenName' value='$initial$_SESSION[lastname]' readonly><br>
+        </label>
+        <label for='text'>Review: <br>
+        <textarea id='text' name='text'></textarea>
+        </label><br><br>
+        <input type='hidden' name='invId' value='$invId'>
+        <input type='hidden' name='clientId' value='$clientId'>
+        <input type='submit' name='submit' class='bigbutton' value='Submit Review'>
+        <input type='hidden' name='action' value='addReview'>
+    </form>";
+    return $display;
+}
+function buildAdminReviews(){
+    $reviewInfo = getReviewsByClient($_SESSION['clientId']);
+      $userReviews = "<ul>";
+      foreach($reviewInfo as $review){
+        $vehicle = getInvItemInfo($review["invId"]);
+        $userReviews .= buildReviewList($review, $vehicle);
+      };
+      $userReviews .= "</ul>";
+    return $userReviews;
+}
 ?>

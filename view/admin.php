@@ -23,13 +23,13 @@
   </nav>
   <h1><?php echo $_SESSION['fullname'] ?></h1>
   <p class="minimessage">You are logged in.</p>
-  <p>
-  <h2>Account Management</h2>
   <?php
     if (isset($_SESSION['message'])) {
       echo $_SESSION['message'];
     }
   ?>
+  <h2>Account Management</h2>
+  
   
     <?php
     if ($_SESSION['clientLevel'] > 2){
@@ -39,6 +39,12 @@
     ?>
     <p class="minimessage">Use this link to update account information.</p>
     <a class='bigbutton' href='../accounts/index.php?action=updateview'>Update Account</a>
+  <h2>Manage Your Vehicle Reviews</h2>
+  
+  <?php echo buildAdminReviews(); ?>
+  
+  
+
   <footer>
     <?php require $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footersecond.php'; ?> 
   </footer>

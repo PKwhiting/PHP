@@ -3,21 +3,31 @@
 
 
 // Create or access a Session
-session_start();
-unset($_SESSION['message']);
+if(session_id() == '' || !isset($_SESSION)) {
+  // session isn't started
+  session_start();
+}
 //get the database connection file
 require_once '../library/connections.php';
 //get the main model for use as needed
 require_once '../model/main-model.php';
 //get the accounts model
 require_once '../model/accounts-model.php';
+//get the reviews model
+require_once '../model/reviews-model.php';
+//get the vehicles model
+require_once '../model/vehicle-model.php';
 //functions
 require_once '../library/functions.php';
 
 //calling navbar function
 $classifications = getClassifications();
 $navList = navBar($classifications);
-;
+
+
+
+
+
 
 $action = filter_input(INPUT_GET, 'action');
  if ($action == NULL){
@@ -33,9 +43,6 @@ $action = filter_input(INPUT_GET, 'action');
       include '../view/register.php';
       break;
     
-    // case 'adminview' :
-    //   include '../view/admin.php';
-    //   break;
 
 
     case 'logout':
@@ -130,6 +137,7 @@ $action = filter_input(INPUT_GET, 'action');
         // Send them to the admin view
         //$fullName = $clientData["clientFirstname"]." ".$clientData["clientLastname"];
         $_SESSION['fullname'] =$clientData["clientFirstname"]." ".$clientData["clientLastname"];
+        $_SESSION['initial'] = $clientData["clientFirstname"][0];
         $_SESSION['lastname'] = $clientData["clientLastname"];
         $_SESSION['email'] = $clientEmail;
         $_SESSION['firstname'] = $clientData["clientFirstname"];
@@ -238,6 +246,13 @@ $action = filter_input(INPUT_GET, 'action');
       break;
 
     default:
+      // $reviewInfo = getReviewsByClient($_SESSION['clientId']);
+      // $userReviews = "<ul>";
+      // foreach($reviewInfo as $review){
+      //   $vehicle = getInvItemInfo($review["invId"]);
+      //   $userReviews .= buildReviewList($review, $vehicle);
+      // };
+      // $userReviews .= "</ul>";
       include '../view/admin.php';
      break;
    }

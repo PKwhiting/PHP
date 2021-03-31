@@ -21,25 +21,20 @@
   <?php if(isset($message)){
   echo $message; }
   ?>
-    <?php if(isset($vehicleInfoDisplay)){echo $vehicleInfoDisplay;} ?>
-  <hr>
-  <h2>Customer Reviews</h2>
-  <?php 
-    if ($_SESSION){
-        if(!isset($reviews)){echo '<p class="minimessage">Be the first to add a review!';}
-        echo $form;
-    }else{
-      $display = "<p class='minimessage'>You must <a href='/phpmotors/accounts/index.php?action=loginview'>login</a> to write a review.";
-      echo $display;
-    }
-?>
+  <h1>Edit Review</h1>
+ <form class='form' method="post" action="/phpmotors/reviews/index.php">
+    <label for='screenName' value='Screen Name:'>Screen Name:<br>
+    <input id='screenName' value='<?php echo strtoupper($_SESSION['initial']); echo $_SESSION['lastname'] ?>' readonly><br>
+    </label>
+    <label for='text' value='Review:'>Review:<br>
+    <textarea id='text' name="reviewText"><?php echo $text; ?></textarea>
+    </label><br>
+    <input type="hidden" name="reviewId" value="<?php echo $reviewId?>">
+    <input type='submit' name='submit' id='upubtn' value='Update Review'>
+    <input type='hidden' name='action' value='updateReview'>
+    </form>
 
-
-
-  <?php if(isset($reviews)){echo $reviews;}; ?>
-
-
-  <footer>
+<footer>
     <?php require $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/snippets/footersecond.php'; ?> 
   </footer>
     

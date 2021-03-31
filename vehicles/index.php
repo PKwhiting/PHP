@@ -19,6 +19,7 @@ require_once '../model/accounts-model.php';
 //functions
 require_once '../library/functions.php';
 require_once '../model/uploads-model.php';
+require_once '../model/reviews-model.php';
 
 //get the array of classifications from DB using model
 $classifications = getClassifications();
@@ -44,10 +45,21 @@ switch ($action){
       $vehicle = getInvItemInfo($invId);
       $image = getInvImgInfo($invId);
       $thumbnails = getThumbnails($invId);
+      if ($_SESSION){
+        $clientId = $_SESSION['clientId'];
+      }
+      
       if(is_null($vehicle)){
         $message = "<p class='minimessage'>Sorry, the vehicle could not be found.</p>";
       } else {
         $vehicleInfoDisplay = buildvehicleDisplay($vehicle,$image,$thumbnails);
+        $invReviews = getReviewsByInv($invId);
+        if ($_SESSION){
+          $form = buildReviewForm($invId,$clientId);
+        }
+        if (count($invReviews) >= 1){
+          $reviews = buildReviewDisplay($invReviews);}
+        
       }
       include '../view/vehicle-detail.php';
 
