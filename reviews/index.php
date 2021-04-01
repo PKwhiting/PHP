@@ -40,14 +40,14 @@ switch ($action){//display vehicle reviews,display clients reviews,
       // Check for missing data
       if(empty($reviewText)){
         $_SESSION['message'] = '<p class="minimessage">Review was not registered. Review must be filled out to be added.</p>';
-        header('Location: /phpmotors/accounts/');
+        header('Location: /phpmotors/vehicles/index.php?action=vehicleinfo&invId='.$invId );
         exit; 
       }
-
+      
       $regOutcome = createReview($clientId, $invId, $reviewText);
       if($regOutcome === 1){
-        $_SESSION['message'] = "<p class='minimessage'>Review added successfully</p>";
-        header('Location: /phpmotors/accounts/');
+        $_SESSION['message'] = "<p class='minimessage'>Review added successfully. See your review below.</p>";
+        header('Location: /phpmotors/vehicles/index.php?action=vehicleinfo&invId='.$invId );
         exit;
       } 
       else {
@@ -72,11 +72,13 @@ switch ($action){//display vehicle reviews,display clients reviews,
 
 
     case 'deleteReviewView':
-        $reviewId = filter_input(INPUT_GET, 'reviewId', FILTER_VALIDATE_INT);
+        $reviewId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
         $reviewInfo = getReview($reviewId);
-        $review = buildReviewDisplay($reviewInfo);
-        if (count($invInfo) < 1) {
-            $message = 'Sorry, no review could be found.';
+        
+        if ($reviewInfo == NULL) {
+            $_SESSION['message'] = '<p class="minimessage">Sorry, no review could be found.</p>';
+            header('location: /phpmotors/accounts/');
+
           }
           include '../view/review-delete.php';
           exit;
@@ -114,7 +116,7 @@ switch ($action){//display vehicle reviews,display clients reviews,
 
 
     case 'deleteReview':
-      $reviewId = filter_input(INPUT_POST, 'reviewId', FILTER_SANITIZE_NUMBER_INT);
+      $reviewId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
       
       $updateResult = deleteReview($reviewId, $reviewText);

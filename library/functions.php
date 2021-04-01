@@ -237,12 +237,16 @@ function resizeImage($old_image_path, $new_image_path, $max_width, $max_height) 
      imagedestroy($old_image);
    } // ends resizeImage function
 
-function buildReviewDisplay($reviewInfo){
-    // $timeStamp = date($reviewInfo["reviewDate"]);
-    // $display = "<ul class='reviewDisplay'>";
-    // $display .= "<li>";
+// function buildReviewDisplay($reviewInfo){
+//     $display = '<ul class="vehiclereviews">';
+//     foreach($reviewInfo as $review){
+//         $display.= 
+//     }
+//     // $timeStamp = date($reviewInfo["reviewDate"]);
+//     // $display = "<ul class='reviewDisplay'>";
+//     // $display .= "<li>";
 
-}
+// }
 function buildReviewEdit($reviewInfo){
     $display = "<form class='reviewedit'";
     $display .= "<label for='screenName' value='Screen Name:'><br>";

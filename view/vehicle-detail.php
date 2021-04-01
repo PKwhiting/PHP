@@ -24,7 +24,10 @@
     <?php if(isset($vehicleInfoDisplay)){echo $vehicleInfoDisplay;} ?>
   <hr>
   <h2>Customer Reviews</h2>
-  <?php 
+  <?php
+    if (isset($_SESSION['message'])) {
+      echo $_SESSION['message'];
+    }
     if ($_SESSION){
         if(!isset($reviews)){echo '<p class="minimessage">Be the first to add a review!';}
         echo $form;
@@ -36,7 +39,7 @@
 
 
 
-  <?php if(isset($reviews)){echo $reviews;}; ?>
+  <?php if(isset($reviews)){echo $reviews;} ?>
 
 
   <footer>

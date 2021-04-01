@@ -58,8 +58,18 @@ switch ($action){
           $form = buildReviewForm($invId,$clientId);
         }
         if (count($invReviews) >= 1){
-          $reviews = buildReviewDisplay($invReviews);}
+          // $reviews = buildReviewDisplay($invReviews);}
+          $reviews = '<ul class="vehiclereviews">';
+          foreach($invReviews as $review){
+            $client = getClietInfo($review['clientId']);
+            $screenName = strtoupper($client['clientFirstname'][0]);
+            $screenName .= $client['clientLastname'];
+            $date = date("D M d, Y, H:i:s", strtotime($review['reviewDate']));
+            $reviews .= "<li><label for='reviewtext'><b>$screenName wrote on $date</b></label><p id='reviewtext'>$review[reviewText]</p></li>";
+          }
+          $reviews .= '</ul>';
         
+        }
       }
       include '../view/vehicle-detail.php';
 
