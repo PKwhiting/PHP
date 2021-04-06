@@ -272,7 +272,7 @@ function buildReviewForm($invId,$clientId){
         <input id='screenName' value='$initial$_SESSION[lastname]' readonly><br>
         </label>
         <label for='text'>Review: <br>
-        <textarea id='text' name='text'></textarea>
+        <textarea id='text' name='text' required></textarea>
         </label><br><br>
         <input type='hidden' name='invId' value='$invId'>
         <input type='hidden' name='clientId' value='$clientId'>

@@ -65,7 +65,7 @@ switch ($action){
             $screenName = strtoupper($client['clientFirstname'][0]);
             $screenName .= $client['clientLastname'];
             $date = date("D M d, Y, H:i:s", strtotime($review['reviewDate']));
-            $reviews .= "<li><label for='reviewtext'><b>$screenName wrote on $date</b></label><p id='reviewtext'>$review[reviewText]</p></li>";
+            $reviews .= "<li><label><b>$screenName wrote on $date</b></label><p>$review[reviewText]</p></li>";
           }
           $reviews .= '</ul>';
         

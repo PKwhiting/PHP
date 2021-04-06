@@ -80,7 +80,9 @@ body main #mainblock {
   padding-bottom: 5em;
 }
 body main #mainblock img {
-  width: 100%;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
   margin-bottom: 4em;
 }
 body main #mainblock #amenities {
@@ -98,19 +100,6 @@ body main #mainblock #amenities ul {
   margin: 0px;
   padding-left: 0px;
   text-align: left;
-}
-body main #mainblock a {
-  text-decoration: none;
-  color: #ffffff;
-  background-color: #4c96d7;
-  border: black solid 1px;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-top: 2%;
-  padding-bottom: 2%;
-  font-family: 'Titillium Web', sans-serif;
-  font-size: 25px;
-  box-shadow: -5px 3px 0px -1px #000000;
 }
 body main div {
   margin-left: 0.3em;

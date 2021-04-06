@@ -29,7 +29,7 @@
         <li>Fuzzy dice!</li>
       </ul>
     </div>
-    <a href="home.php" title="View DMC Deloran and all of its features.">Own Today!</a>
+    <a href="index.php" class="bigbutton" title="View DMC Deloran and all of its features.">Own Today!</a>
   </div>
   <div id="review_upgrades">
     <div id="reviews">
@@ -48,19 +48,19 @@
       <div id="upgrades">
         <div class="upgradeitems">
           <div class="itemimage"><img src="images/upgrades/flux-cap.png" alt="image of flux capacitor"></div>
-          <a href="home.php">Flux Capacitor</a>
+          <a href="index.php">Flux Capacitor</a>
           </div>
           <div class="upgradeitems">
           <div class="itemimage"><img src="images/upgrades/flame.jpg" alt="image of flame decal"></div>
-          <a href="home.php">Flame Decals</a>
+          <a href="index.php">Flame Decals</a>
           </div>
           <div class="upgradeitems">
           <div class="itemimage"><img src="images/upgrades/bumper_sticker.jpg" alt="image of bumper sticker"></div>
-          <a href="home.php">Bumper Stickers</a>
+          <a href="index.php">Bumper Stickers</a>
           </div>
           <div class="upgradeitems">
           <div class="itemimage"><img src="images/upgrades/hub-cap.jpg" alt="image of hub caps"></div>
-          <a href="home.php">Hub Caps</a>
+          <a href="index.php">Hub Caps</a>
         </div>
       </div>
     </div>

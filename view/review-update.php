@@ -27,7 +27,7 @@
     <input id='screenName' value='<?php echo strtoupper($_SESSION['initial']); echo $_SESSION['lastname'] ?>' readonly><br>
     </label>
     <label for='text' value='Review:'>Review:<br>
-    <textarea id='text' name="reviewText"><?php echo $text; ?></textarea>
+    <textarea id='text' name="reviewText" required><?php if(isset($text)){echo $text; }?></textarea>
     </label><br>
     <input type="hidden" name="reviewId" value="<?php echo $reviewId?>">
     <input type='submit' name='submit' id='upubtn' value='Update Review'>
