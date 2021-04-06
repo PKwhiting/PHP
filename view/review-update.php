@@ -23,10 +23,10 @@
   ?>
   <h1>Edit Review</h1>
  <form class='form' method="post" action="/phpmotors/reviews/index.php">
-    <label for='screenName' value='Screen Name:'>Screen Name:<br>
+    <label for='screenName'>Screen Name:<br>
     <input id='screenName' value='<?php echo strtoupper($_SESSION['initial']); echo $_SESSION['lastname'] ?>' readonly><br>
     </label>
-    <label for='text' value='Review:'>Review:<br>
+    <label for='text'>Review:<br>
     <textarea id='text' name="reviewText" required><?php if(isset($text)){echo $text; }?></textarea>
     </label><br>
     <input type="hidden" name="reviewId" value="<?php echo $reviewId?>">
